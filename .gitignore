@@ -1,0 +1,25 @@
+# Dependencies — reinstall from package.json
+node_modules/
+ 
+# Environment files — secrets never in Git
+.env
+.env.local
+.env.*.local
+ 
+# Logs
+npm-debug.log*
+*.log
+ 
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+ 
+# Build output
+dist/
+build/
+ 
+# Optional: coverage
+coverage/
