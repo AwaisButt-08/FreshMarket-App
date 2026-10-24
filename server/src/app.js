@@ -10,6 +10,14 @@ app.use(cors());
 app.get("/",(req,res)=>{
     res.status(200).send("Api is Working!!")
     
-})
+});
+
+app.get("/health",(req,res)=>{
+    res.status(200).json({
+        message: "OK!"
+    });
+    
+});
+
 
 export default app;
