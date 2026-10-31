@@ -38,7 +38,8 @@ const Home = () => {
 
             {!loading && !error && data && success && (
                 <div>
-                    <p>success: {data.message}</p>
+                    <p>success: {data.db}</p>
+                    <p>success: {data.status}</p>
                     <pre>{JSON.stringify(data, null, 2)}</pre>
                 </div>
             )}

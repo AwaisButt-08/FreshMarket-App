@@ -18,3 +18,18 @@ export const getHealth = async()=>{
         throw error;
     }
 };
+// export const getHealthh = async()=>{
+    
+//     try {
+        
+//         const healthh = await fetch(`${baseUrl}/healthh`);
+//         if(!healthh.ok){
+//             throw new Error(`Request failed:${healthh.status}`)
+//         }
+
+//         const data = await healthh.json();
+//         return data;
+//     } catch (error) {
+//         throw error;
+//     }
+// };
