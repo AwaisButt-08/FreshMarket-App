@@ -17,7 +17,7 @@ router.post("/register",validateRegister,(async(req,res,next)=>{
 }));
 
 
-router.post("/verify-otp",validateVerifyOtp,(async(req,res,next)=>{
+router.post("/verifyOtp",validateVerifyOtp,(async(req,res,next)=>{
     try {
         const result = await verifyOtp(req.body);
 
@@ -41,9 +41,21 @@ router.post("/login",validateLogin,(async(req,res,next)=>{
 
 router.post("/refresh",(async(req,res,next)=>{
     try {
-        const result = await refreshAccessToken(req.body);
+        const refreshToken  = await refreshAccessToken(req.cookies.refreshToken);
 
-        res.status(200).json(result);
+       
+        const  result = await refreshAccessToken({ refreshToken });
+
+        res.cookie("refreshToken", result.refreshToken, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === "production",
+            sameSite: "lax",
+            path: "/api/auth/refresh",
+        });
+
+        res.status(200).json({
+            accessToken: result.accessToken,
+        });
     } catch (error) {
         next(error);
     }

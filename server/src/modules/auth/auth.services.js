@@ -209,7 +209,6 @@ export const logoutUser = async (userId) => {
     }
 
     user.refreshTokenHash = undefined;
-    user.accessToken = undefined;
 
     await user.save();
 

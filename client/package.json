@@ -13,10 +13,15 @@
     "@tailwindcss/vite": "^4.3.3",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
+    "react-icons": "^5.7.0",
     "react-router": "^8.5.0",
     "react-router-dom": "^7.18.4",
+    "react-toastify": "^11.2.0",
     "redux-persist": "^6.0.0",
     "tailwindcss": "^4.3.3"
+  },
+  "overrides": {
+    "minimatch": "$minimatch"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -27,6 +32,7 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.7",
     "globals": "^17.13.0",
+    "minimatch": "^11.0.3",
     "vite": "^8.3.4"
   }
 }
