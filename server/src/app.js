@@ -4,6 +4,7 @@ import { connectDB } from './shared/db.js';
 import "dotenv/config";
 import mongoose from 'mongoose'
 import authRoutes from './modules/auth/auth.routes.js'
+import storeRoutes from './modules/stores/stores.routes.js'
 
 const app = express();
 
@@ -37,6 +38,7 @@ app.get("/health",(req,res)=>{
 });
 
 app.use('/api/auth', authRoutes)
+app.use('api/stores',storeRoutes)
 // app.get("/health",(req,res)=>{
 //     res.status(200).json({
 //         message: "OK!"

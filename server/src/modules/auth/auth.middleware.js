@@ -5,6 +5,7 @@ import {
     validateLoginBody,
     validateVerifyOtpBody,
 } from "./auth.schema.js";
+import { User } from "../users/user.model.js";
 
 // 1. Verify access token
 export const requireAuth = (req, res, next) => {
@@ -99,4 +100,24 @@ export const validateVerifyOtp = (req, res, next) => {
     }
 
     next();
+};
+
+export const requireRole = (...allowedRoles) => {
+
+    return (req, res, next) => {
+
+        if (!req.user) {
+            return res.status(401).json({
+                message: "Unauthorized"
+            });
+        }
+
+        if (!allowedRoles.includes(req.user.role)) {
+            return res.status(403).json({
+                message: "Forbidden"
+            });
+        }
+
+        next();
+    };
 };
